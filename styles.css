@@ -1,0 +1,233 @@
+
+:root {
+    --bg-dark: #121212;
+    --bg-card: #181818;
+    --bg-hover: #282828;
+    --primary: #1db954;
+    --text-main: #ffffff;
+    --text-muted: #b3b3b3;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Navegación */
+.sidebar {
+    width: 240px;
+    background-color: #000000;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    padding: 12px 15px;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-links li:hover, .nav-links li.active {
+    color: var(--text-main);
+    background-color: var(--bg-hover);
+}
+
+.nav-links li.active {
+    border-left: 4px solid var(--primary);
+}
+
+/* Contenido Principal */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Tarjetas y UI */
+.card {
+    background-color: var(--bg-card);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.help-text {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.mixer-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.styled-select, input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #444;
+    border-radius: 4px;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+
+.controls {
+    margin-top: 15px;
+}
+
+/* Botones */
+.btn-primary, .btn-secondary {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    margin-right: 10px;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: #000;
+}
+
+.btn-primary:hover {
+    transform: scale(1.04);
+    background-color: #1ed760;
+}
+
+.btn-secondary {
+    background-color: #333;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #444;
+}
+
+/* Hoja 3 */
+.publish-card {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.album-art {
+    font-size: 80px;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.publish-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+#final-audio-player {
+    width: 100%;
+    margin-top: 15px;
+}
+/* Estilos para Recorte y Controles */
+.trim-box {
+    margin-top: 15px;
+    background: #222;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.trim-inputs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+    font-size: 0.85rem;
+}
+
+.trim-inputs input {
+    width: 65px;
+    padding: 5px;
+    background: #333;
+    border: 1px solid #555;
+    color: white;
+    border-radius: 4px;
+}
+
+.track-btn-group, .global-btn-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn-sm {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+}
+
+.btn-play { background-color: #1db954; }
+.btn-pause { background-color: #f59e0b; }
+.btn-stop { background-color: #ef4444; }
+
+.btn-warning {
+    background-color: #f59e0b;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-danger {
+    background-color: #ef4444;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}

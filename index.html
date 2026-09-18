@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mixify - Reproductor y Mezclador Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Menú Lateral -->
+    <nav class="sidebar">
+        <div class="logo">
+            <i class="fa-solid fa-record-vinyl"></i> Mixify Pro
+        </div>
+        <ul class="nav-links">
+            <li class="active" onclick="showTab('tab-search')"><i class="fa-solid fa-magnifying-glass"></i> 1. Buscar / Importar</li>
+            <li onclick="showTab('tab-mix')"><i class="fa-solid fa-sliders"></i> 2. Estudio de Mezcla</li>
+            <li onclick="showTab('tab-publish')"><i class="fa-solid fa-share-nodes"></i> 3. Resultado y Publicar</li>
+        </ul>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="main-content">
+
+        <!-- HOJA 1: Buscar e Importar -->
+        <section id="tab-search" class="tab-content active">
+            <h2><i class="fa-solid fa-music"></i> Buscar e Importar Música</h2>
+            <div class="card">
+                <h3>Importar tus archivos locales</h3>
+                <input type="file" id="audio-input" accept="audio/*" multiple>
+                <p class="help-text">Selecciona 2 o más canciones (.mp3, .wav) de tu computadora.</p>
+            </div>
+
+            <div class="card">
+                <h3>Biblioteca de Pistas Cargadas</h3>
+                <ul id="track-list" class="track-list">
+                    <p>No has cargado ninguna canción aún.</p>
+                </ul>
+            </div>
+        </section>
+
+        <!-- HOJA 2: Mezclador Avanzado (Play, Pausa, Stop y Cortar) -->
+        <section id="tab-mix" class="tab-content">
+            <h2><i class="fa-solid fa-sliders"></i> Mezclador y Edición de Pistas</h2>
+            
+            <div class="mixer-container">
+                <!-- PISTA A -->
+                <div class="track-control card">
+                    <h3><i class="fa-solid fa-compact-disc"></i> Pista A</h3>
+                    <select id="select-track-a" class="styled-select"><option>Carga música primero</option></select>
+                    
+                    <div class="controls">
+                        <label>Volumen A:</label>
+                        <input type="range" id="vol-a" min="0" max="1" step="0.05" value="1">
+                    </div>
+
+                    <!-- Cortar / Recortar Pista A -->
+                    <div class="trim-box">
+                        <label><i class="fa-solid fa-scissors"></i> Recortar Pista A (segundos):</label>
+                        <div class="trim-inputs">
+                            <span>Inicio:</span>
+                            <input type="number" id="start-a" min="0" value="0" step="1">
+                            <span>Fin:</span>
+                            <input type="number" id="end-a" min="1" value="30" step="1">
+                        </div>
+                    </div>
+
+                    <!-- Botones de Control A -->
+                    <div class="track-btn-group">
+                        <button id="btn-play-a" class="btn-sm btn-play"><i class="fa-solid fa-play"></i></button>
+                        <button id="btn-pause-a" class="btn-sm btn-pause"><i class="fa-solid fa-pause"></i></button>
+                        <button id="btn-stop-a" class="btn-sm btn-stop"><i class="fa-solid fa-stop"></i></button>
+                    </div>
+                </div>
+
+                <!-- PISTA B -->
+                <div class="track-control card">
+                    <h3><i class="fa-solid fa-compact-disc"></i> Pista B</h3>
+                    <select id="select-track-b" class="styled-select"><option>Carga música primero</option></select>
+                    
+                    <div class="controls">
+                        <label>Volumen B:</label>
+                        <input type="range" id="vol-b" min="0" max="1" step="0.05" value="1">
+                    </div>
+
+                    <!-- Cortar / Recortar Pista B -->
+                    <div class="trim-box">
+                        <label><i class="fa-solid fa-scissors"></i> Recortar Pista B (segundos):</label>
+                        <div class="trim-inputs">
+                            <span>Inicio:</span>
+                            <input type="number" id="start-b" min="0" value="0" step="1">
+                            <span>Fin:</span>
+                            <input type="number" id="end-b" min="1" value="30" step="1">
+                        </div>
+                    </div>
+
+                    <!-- Botones de Control B -->
+                    <div class="track-btn-group">
+                        <button id="btn-play-b" class="btn-sm btn-play"><i class="fa-solid fa-play"></i></button>
+                        <button id="btn-pause-b" class="btn-sm btn-pause"><i class="fa-solid fa-pause"></i></button>
+                        <button id="btn-stop-b" class="btn-sm btn-stop"><i class="fa-solid fa-stop"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controles Globales de la Mezcla -->
+            <div class="card mix-actions">
+                <h3>Controles de Mezcla Simultánea</h3>
+                <div class="global-btn-group">
+                    <button id="btn-play-mix" class="btn-primary"><i class="fa-solid fa-play"></i> Reproducir Mezcla</button>
+                    <button id="btn-pause-mix" class="btn-warning"><i class="fa-solid fa-pause"></i> Pausar Mezcla</button>
+                    <button id="btn-stop-mix" class="btn-danger"><i class="fa-solid fa-stop"></i> Detener Mezcla</button>
+                </div>
+                <button id="btn-render-mix" class="btn-secondary" style="margin-top: 15px;"><i class="fa-solid fa-wand-magic-sparkles"></i> Procesar Mezcla Final</button>
+            </div>
+        </section>
+
+        <!-- HOJA 3: Resultado y Publicación -->
+        <section id="tab-publish" class="tab-content">
+            <h2><i class="fa-solid fa-circle-check"></i> Resultado Final y Publicación</h2>
+            <div class="card publish-card">
+                <div class="album-art">
+                    <i class="fa-solid fa-compact-disc"></i>
+                </div>
+                <h3 id="mix-title">Mi Mezcla Increíble</h3>
+                <audio id="final-audio-player" controls></audio>
+                
+                <div class="publish-form">
+                    <input type="text" id="input-title" placeholder="Título de la mezcla...">
+                    <textarea id="input-desc" placeholder="Descripción o detalles del Mix..."></textarea>
+                    <button id="btn-publish" class="btn-primary"><i class="fa-solid fa-cloud-arrow-up"></i> Publicar en Mixify</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
