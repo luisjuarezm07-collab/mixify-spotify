@@ -3,28 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mixify - Reproductor y Mezclador Pro</title>
+    <title>Mixify Pro - Reproductor y Mezclador</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Iconos de FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Menú Lateral -->
+    <!-- BARRA LATERAL DE NAVEGACIÓN -->
     <nav class="sidebar">
         <div class="logo">
             <i class="fa-solid fa-record-vinyl"></i> Mixify Pro
         </div>
         <ul class="nav-links">
-            <li class="active" onclick="showTab('tab-search')"><i class="fa-solid fa-magnifying-glass"></i> 1. Buscar / Importar</li>
-            <li onclick="showTab('tab-mix')"><i class="fa-solid fa-sliders"></i> 2. Estudio de Mezcla</li>
-            <li onclick="showTab('tab-publish')"><i class="fa-solid fa-share-nodes"></i> 3. Resultado y Publicar</li>
-        </ul>
+    <li class="active" onclick="showTab('tab-search')"><i class="fa-solid fa-magnifying-glass"></i> 1. Buscar / Importar</li>
+    <li onclick="showTab('tab-mix')"><i class="fa-solid fa-sliders"></i> 2. Estudio de Mezcla</li>
+    <li onclick="showTab('tab-publish')"><i class="fa-solid fa-share-nodes"></i> 3. Resultado y Publicar</li>
+    <li onclick="showTab('tab-fx')"><i class="fa-solid fa-wave-square"></i> 4. Efectos & FX</li>
+    <li onclick="showTab('tab-profile')"><i class="fa-solid fa-user"></i> 5. Mi Perfil & Galería</li>
+</ul>
     </nav>
 
-    <!-- Contenido Principal -->
+    <!-- CONTENIDO PRINCIPAL -->
     <main class="main-content">
 
-        <!-- HOJA 1: Buscar e Importar -->
+        <!-- HOJA 1: BUSCAR E IMPORTAR MÚSICA -->
         <section id="tab-search" class="tab-content active">
             <h2><i class="fa-solid fa-music"></i> Buscar e Importar Música</h2>
             <div class="card">
@@ -41,7 +44,7 @@
             </div>
         </section>
 
-        <!-- HOJA 2: Mezclador Avanzado (Play, Pausa, Stop y Cortar) -->
+        <!-- HOJA 2: ESTUDIO DE MEZCLA Y EDICIÓN -->
         <section id="tab-mix" class="tab-content">
             <h2><i class="fa-solid fa-sliders"></i> Mezclador y Edición de Pistas</h2>
             
@@ -54,6 +57,11 @@
                     <div class="controls">
                         <label>Volumen A:</label>
                         <input type="range" id="vol-a" min="0" max="1" step="0.05" value="1">
+                    </div>
+
+                    <!-- Contador de Tiempo A -->
+                    <div class="time-display">
+                        <span>Tiempo actual: <strong id="time-a">0s</strong> / <span id="total-a">0s</span></span>
                     </div>
 
                     <!-- Cortar / Recortar Pista A -->
@@ -69,9 +77,9 @@
 
                     <!-- Botones de Control A -->
                     <div class="track-btn-group">
-                        <button id="btn-play-a" class="btn-sm btn-play"><i class="fa-solid fa-play"></i></button>
-                        <button id="btn-pause-a" class="btn-sm btn-pause"><i class="fa-solid fa-pause"></i></button>
-                        <button id="btn-stop-a" class="btn-sm btn-stop"><i class="fa-solid fa-stop"></i></button>
+                        <button id="btn-play-a" class="btn-sm btn-play" title="Reproducir A"><i class="fa-solid fa-play"></i></button>
+                        <button id="btn-pause-a" class="btn-sm btn-pause" title="Pausar A"><i class="fa-solid fa-pause"></i></button>
+                        <button id="btn-stop-a" class="btn-sm btn-stop" title="Detener A"><i class="fa-solid fa-stop"></i></button>
                     </div>
                 </div>
 
@@ -83,6 +91,11 @@
                     <div class="controls">
                         <label>Volumen B:</label>
                         <input type="range" id="vol-b" min="0" max="1" step="0.05" value="1">
+                    </div>
+
+                    <!-- Contador de Tiempo B -->
+                    <div class="time-display">
+                        <span>Tiempo actual: <strong id="time-b">0s</strong> / <span id="total-b">0s</span></span>
                     </div>
 
                     <!-- Cortar / Recortar Pista B -->
@@ -98,14 +111,14 @@
 
                     <!-- Botones de Control B -->
                     <div class="track-btn-group">
-                        <button id="btn-play-b" class="btn-sm btn-play"><i class="fa-solid fa-play"></i></button>
-                        <button id="btn-pause-b" class="btn-sm btn-pause"><i class="fa-solid fa-pause"></i></button>
-                        <button id="btn-stop-b" class="btn-sm btn-stop"><i class="fa-solid fa-stop"></i></button>
+                        <button id="btn-play-b" class="btn-sm btn-play" title="Reproducir B"><i class="fa-solid fa-play"></i></button>
+                        <button id="btn-pause-b" class="btn-sm btn-pause" title="Pausar B"><i class="fa-solid fa-pause"></i></button>
+                        <button id="btn-stop-b" class="btn-sm btn-stop" title="Detener B"><i class="fa-solid fa-stop"></i></button>
                     </div>
                 </div>
             </div>
 
-            <!-- Controles Globales de la Mezcla -->
+            <!-- CONTROLES GLOBALES DE MEZCLA -->
             <div class="card mix-actions">
                 <h3>Controles de Mezcla Simultánea</h3>
                 <div class="global-btn-group">
@@ -117,7 +130,7 @@
             </div>
         </section>
 
-        <!-- HOJA 3: Resultado y Publicación -->
+        <!-- HOJA 3: RESULTADO Y PUBLICACIÓN -->
         <section id="tab-publish" class="tab-content">
             <h2><i class="fa-solid fa-circle-check"></i> Resultado Final y Publicación</h2>
             <div class="card publish-card">
@@ -136,6 +149,76 @@
         </section>
 
     </main>
+    <!-- HOJA 4: ECUALIZADOR Y EFECTOS DE SONIDO -->
+<section id="tab-fx" class="tab-content">
+    <h2><i class="fa-solid fa-wave-square"></i> Ecualizador y Efectos (FX)</h2>
+    
+    <div class="mixer-container">
+        <!-- Ecualizador -->
+        <div class="card">
+            <h3><i class="fa-solid fa-sliders"></i> Ecualizador de 3 Bandas</h3>
+            <div class="controls">
+                <label>Graves (Bass):</label>
+                <input type="range" id="eq-bass" min="-12" max="12" step="1" value="0">
+            </div>
+            <div class="controls">
+                <label>Medios (Mids):</label>
+                <input type="range" id="eq-mid" min="-12" max="12" step="1" value="0">
+            </div>
+            <div class="controls">
+                <label>Agudos (Treble):</label>
+                <input type="range" id="eq-treble" min="-12" max="12" step="1" value="0">
+            </div>
+        </div>
+
+        <!-- Efectos de Transición -->
+        <div class="card">
+            <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Transiciones y Fading</h3>
+            <div class="trim-box">
+                <label><input type="checkbox" id="chk-fade-in"> Activar Fade In (Entrada suave - 3s)</label>
+            </div>
+            <div class="trim-box" style="margin-top: 10px;">
+                <label><input type="checkbox" id="chk-fade-out"> Activar Fade Out (Salida suave - 3s)</label>
+            </div>
+            <button class="btn-primary" style="margin-top: 20px; width: 100%;"><i class="fa-solid fa-check"></i> Aplicar Efectos</button>
+        </div>
+    </div>
+</section>
+
+<!-- HOJA 5: MI PERFIL Y HISTORIAL DE MEZCLAS -->
+<section id="tab-profile" class="tab-content">
+    <h2><i class="fa-solid fa-user"></i> Mi Perfil y Biblioteca Personal</h2>
+    
+    <div class="card" style="display: flex; align-items: center; gap: 20px;">
+        <div style="font-size: 60px; color: var(--primary);"><i class="fa-solid fa-circle-user"></i></div>
+        <div>
+            <h3 style="margin: 0;">DJ Creador</h3>
+            <p class="help-text" style="margin: 5px 0 0 0;">Usuario Mixify Pro • 3 Mezclas Publicadas</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3><i class="fa-solid fa-list-check"></i> Mis Mezclas Publicadas</h3>
+        <ul class="track-list">
+            <li class="track-item" style="padding: 12px; margin-bottom: 8px;">
+                <div>
+                    <strong>Mi Mezcla Increíble</strong><br>
+                    <small class="help-text">Duración: 2:30 | Publicado hace un momento</small>
+                </div>
+                <button class="btn-sm btn-play"><i class="fa-solid fa-play"></i></button>
+            </li>
+            <li class="track-item" style="padding: 12px; margin-bottom: 8px;">
+                <div>
+                    <strong>Summer Mix 2026</strong><br>
+                    <small class="help-text">Duración: 3:15 | Publicado ayer</small>
+                </div>
+                <button class="btn-sm btn-play"><i class="fa-solid fa-play"></i></button>
+            </li>
+        </ul>
+    </div>
+</section>
+
+   
 
     <script src="app.js"></script>
 </body>
