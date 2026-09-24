@@ -1,0 +1,74 @@
+<!-- HOJA 6: GUARDAR Y DESCARGAR MÚSICA -->
+        <section id="tab-export" class="tab-content">
+            <h2><i class="fa-solid fa-floppy-disk"></i> Guardar y Exportar Música</h2>
+            
+            <div class="mixer-container">
+                <!-- Guardar en Local / Nube -->
+                <div class="card">
+                    <h3><i class="fa-solid fa-download"></i> Descargar Mezcla en tu Dispositivo</h3>
+                    <p class="help-text">Elige el formato de audio deseado para guardar la pista procesada:</p>
+                    
+                    <div class="controls">
+                        <label>Formato de Salida:</label>
+                        <select id="export-format" class="styled-select">
+                            <option value="mp3">Audio MP3 (.mp3) - Recomendado</option>
+                            <option value="wav">Audio WAV (.wav) - Alta Calidad</option>
+                        </select>
+                    </div>
+
+                    <div class="controls">
+                        <label>Calidad / Bitrate:</label>
+                        <select id="export-quality" class="styled-select">
+                            <option value="320">320 kbps (Máxima)</option>
+                            <option value="256">256 kbps (Estándar)</option>
+                        </select>
+                    </div>
+
+                    <button id="btn-download-mix" class="btn-primary" style="margin-top: 20px; width: 100%;">
+                        <i class="fa-solid fa-file-arrow-down"></i> Descargar Archivo de Audio
+                    </button>
+                </div>
+
+                <!-- Guardar en Galería / Nube -->
+                <div class="card">
+                    <h3><i class="fa-solid fa-cloud-arrow-up"></i> Guardar en mi Biblioteca Nube</h3>
+                    <p class="help-text">Guarda una copia de respaldo en tu perfil de Mixify Pro para no perderla.</p>
+                    <div class="trim-box" style="margin-top: 15px;">
+                        <span>Estado de almacenamiento: <strong>3.2 MB / 100 MB</strong></span>
+                    </div>
+                    <button id="btn-save-cloud" class="btn-secondary" style="margin-top: 20px; width: 100%;">
+                        <i class="fa-solid fa-cloud"></i> Guardar en la Nube
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOJA 7: MEZCLA AVANZADA Y DRUM PAD -->
+        <section id="tab-advanced" class="tab-content">
+            <h2><i class="fa-solid fa-gears"></i> Herramientas de Mezcla Avanzada</h2>
+            
+            <div class="mixer-container">
+                <!-- Ajuste de Tempo / BPM -->
+                <div class="card">
+                    <h3><i class="fa-solid fa-gauge-high"></i> Control de Tempo / BPM</h3>
+                    <div class="controls">
+                        <label>Velocidad de Reproducción (Pitch/BPM): <strong id="bpm-val">1.0x</strong></label>
+                        <input type="range" id="speed-rate" min="0.5" max="1.5" step="0.05" value="1.0">
+                    </div>
+                    <p class="help-text" style="margin-top: 10px;">Ajusta la velocidad para sincronizar el ritmo entre las Pistas A y B.</p>
+                </div>
+
+                <!-- Drum Pad / Efectos de Ritmo -->
+                <div class="card">
+                    <h3><i class="fa-solid fa-drum"></i> Drum Pad & Sampler</h3>
+                    <p class="help-text">Presiona los botones para lanzar efectos en vivo durante tu mezcla:</p>
+                    
+                    <div class="track-btn-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px;">
+                        <button id="pad-kick" class="btn-secondary" style="padding: 15px;"><i class="fa-solid fa-drum-steelpan"></i> Kick / Bombo</button>
+                        <button id="pad-snare" class="btn-secondary" style="padding: 15px;"><i class="fa-solid fa-compact-disc"></i> Snare / Tarola</button>
+                        <button id="pad-clap" class="btn-secondary" style="padding: 15px;"><i class="fa-solid fa-hand-claps"></i> Aplauso / Clap</button>
+                        <button id="pad-airhorn" class="btn-primary" style="padding: 15px;"><i class="fa-solid fa-bullhorn"></i> DJ Airhorn</button>
+                    </div>
+                </div>
+            </div>
+        </section>
